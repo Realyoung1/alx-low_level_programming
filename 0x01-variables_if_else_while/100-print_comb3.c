@@ -23,11 +23,12 @@ int main(void)
 				if (!(ones == '9' && tens == '8'))/*addes comma and space*/
 				{
 					putchar(',');
-					putchar(' ");
+					putchar(' ');
 				}
 			}
 		}
 	}
+
 	putchar('\n');
 
 	return (0);
