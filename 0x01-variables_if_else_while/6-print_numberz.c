@@ -11,11 +11,14 @@
 int main(void)
 
 {
-	int d;
+	int c = 0;
 
-	for (d = '0'; d <= '9' d++)
-	putchar(d);
+	while (c < 10)
+	{
+		putchar(48 + c);
+		c++;
+	}
+
 	putchar('\n');
-
 	return (0);
 }
