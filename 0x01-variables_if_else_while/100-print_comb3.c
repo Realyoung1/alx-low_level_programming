@@ -3,36 +3,31 @@
 #include <time.h>
 
 /**
- * main - print all possible different combinationsof two digit
- *
- * Return: Always 0 (Success)
- *
+ * main - Entry point
+ *Return: Always 0 (Success)
  */
 
 int main(void)
 
 {
-	int one = '0';
-	int tens = '0';
+	int d, p;
 
-	for (tens = '0'; tens <= '9'; tens++)/* print tens digit*/
+	for (d = '0'; d < '9'; d++)
 	{
-		for (ones = '0'; ones <= '9'; ones++)/*print ones digit*/
-		{
-			if (!((ones == tens) || (tens > ones)))/*eliminates repitition*/
-			{
-				putchar(tens);
-				putchar(ones);
-				if (!(ones == '9' && tens == '8'))/*add comma and space*/
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
-		}
+
+	for (p = d + 1; p <= '9'; p++)
+	{
+	if (p != d)
+	{
+	putchar(d);
+	putchar(p);
+	if (d == '8' && p == '9')
+	continue;
+	putchar(',');
+	putchar('.');
 	}
-
+	}
+	}
 	putchar('\n');
-
 	return (0);
 }
