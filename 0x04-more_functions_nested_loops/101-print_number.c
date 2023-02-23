@@ -2,7 +2,7 @@
 #include "main.h"
 /**
  * main - prints the largest prime factor of 612852475143
- * Owned by RealDevices Tech / Realyoung
+ * Owned by RealDevices Tech
  * Return: always 0
  **/
 
