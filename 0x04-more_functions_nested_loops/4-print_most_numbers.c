@@ -2,7 +2,7 @@
 
 /**
 *print_most_numbers - prints the numbers, from 0 to 9, followed by a new line.
-* owned by Bwave ICT
+* owned by RealDevices Tech
 *Return: void
 */
 
