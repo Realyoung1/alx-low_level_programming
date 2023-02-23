@@ -1,20 +1,22 @@
-#include <stdio.h>
 #include "main.h"
 /**
- * main - prints the largest prime factor of 612852475143
- * Owned by RealDevices Tech
- * Return: always 0
- **/
-
-int main(void)
+ * print_number - prints an integer
+ * @n:.input integer parameter
+ *
+ *Owned by RealDevices Tech
+ */
+void print_number(int n)
 {
-	unsigned long int i, n = 612852475143;
+	unsigned int i = n;
 
-	for (i = 3; i < 782849; i = i + 2)
+	if (n < 0)
 	{
-		while ((n % i == 0) && (n != i))
-			n = n / i;
+		_putchar(45);
+		i = -i;
 	}
-	printf("%lu\n", n);
-	return (0);
+	if (i / 10)
+	{
+		print_number(i / 10);
+	}
+	_putchar(i % 10 + '0');
 }
