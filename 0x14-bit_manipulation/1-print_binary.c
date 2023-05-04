@@ -7,13 +7,13 @@
  */
 unsigned long int _power(unsigned int base, unsigned int pow)
 {
-	unsigned long int num;
+	unsigned long int bum;
 	unsigned int d;
 
-	num = 1;
+	bum = 1;
 	for (d = 1; d <= pow; d++)
-		num *= base;
-	return (num);
+		bum *= base;
+	return (bum);
 }
 /**
  * print_binary - Here is to write a function that prints the binary
