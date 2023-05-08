@@ -1,6 +1,6 @@
 #include "main.h"
 
-void check_IO_stat(int stat, int fd, char *filename, char mode);
+void check_IO_stat(int stat, int gh, char *filename, char mode);
 /**
  * main - copies the content of one file to another
  * @argc: argument count
@@ -10,7 +10,7 @@ void check_IO_stat(int stat, int fd, char *filename, char mode);
  */
 int main(int argc, char *argv[])
 {
-	int src, dest, n_read = 1024, wrote, close_src, close_dest;
+	int srt, desc, n_read = 1024, wrote, close_srt, close_desc;
 	unsigned int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	char buffer[1024];
 
@@ -19,23 +19,23 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "%s", "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	src = open(argv[1], O_RDONLY);
+	srt = open(argv[1], O_RDONLY);
 	check_IO_stat(src, -1, argv[1], 'O');
-	dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
-	check_IO_stat(dest, -1, argv[2], 'W');
+	desc = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	check_IO_stat(desc, -1, argv[2], 'W');
 	while (n_read == 1024)
 	{
-		n_read = read(src, buffer, sizeof(buffer));
+		n_read = read(srt, buffer, sizeof(buffer));
 		if (n_read == -1)
 			check_IO_stat(-1, -1, argv[1], 'O');
-		wrote = write(dest, buffer, n_read);
+		wrote = write(desc, buffer, n_read);
 		if (wrote == -1)
 			check_IO_stat(-1, -1, argv[2], 'W');
 	}
-	close_src = close(src);
-	check_IO_stat(close_src, src, NULL, 'C');
-	close_dest = close(dest);
-	check_IO_stat(close_dest, dest, NULL, 'C');
+	close_srt = close(srt);
+	check_IO_stat(close_srt, src, NULL, 'C');
+	close_desc = close(desc);
+	check_IO_stat(close_desc, desc, NULL, 'C');
 	return (0);
 }
 
@@ -48,11 +48,11 @@ int main(int argc, char *argv[])
  *
  * Return: void
  */
-void check_IO_stat(int stat, int fd, char *filename, char mode)
+void check_IO_stat(int stat, int gh, char *filename, char mode)
 {
 	if (mode == 'C' && stat == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close gh %d\n", gh);
 		exit(100);
 	}
 	else if (mode == 'O' && stat == -1)
