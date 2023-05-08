@@ -1,114 +1,68 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
+void check_IO_stat(int stat, int fd, char *filename, char mode);
 /**
- * check67 - checks for the correct number of arguments
- * @argk: number of arguments
+ * main - copies the content of one file to another
+ * @argc: argument count
+ * @argv: arguments passed
  *
- * Return: void
+ * Return: 1 on success, exit otherwise
  */
-void check67(int argk)
+int main(int argc, char *argv[])
 {
-	if (argk != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(67);
-	}
-}
-
-/**
- * check68 - checks that file_from exists and can be read
- * @check: checks if true of false
- * @file: file_from name
- * @ty_from: file descriptor of file_from, or -1
- * @ty_to: file descriptor of file_to, or -1
- *
- * Return: void
- */
-void check68(ssize_t check, char *file, int ty_from, int ty_to)
-{
-	if (check == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
-		if (ty_from != -1)
-			close(ty_from);
-		if (ty_to != -1)
-			close(ty_to);
-		exit(68);
-	}
-}
-
-/**
- * check69 - checks that file_to was created and/or can be written to
- * @check: checks if true of false
- * @file: file_to name
- * @ty_from: file descriptor of file_from, or -1
- * @ty_to: file descriptor of file_to, or -1
- *
- * Return: void
- */
-void check69(ssize_t check, char *file, int ty_from, int ty_to)
-{
-	if (check == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-		if (ty_from != -1)
-			close(ty_from);
-		if (ty_to != -1)
-			close(ty_to);
-		exit(69);
-	}
-}
-
-/**
- * check70 - checks that file descriptors were closed properly
- * @check: checks if true or false
- * @ty: file descriptor
- *
- * Return: void
- */
-void check70(int check, int ty)
-{
-	if (check == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close ty %d\n", ty);
-		exit(70);
-	}
-}
-/**
- * main - copies the content of a file to another file.
- * @argk: number of arguments passed
- * @argp: array of pointers to the arguments
- *
- * Return: 0 on success
- */
-int main(int argk, char *argp[])
-{
-	int ty_from, ty_to, close_to, close_from;
-	ssize_t lenc, lenv;
+	int src, dest, n_read = 1024, wrote, close_src, close_dest;
+	unsigned int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	char buffer[1024];
-	mode_t file_perm;
 
-	check97(argk);
-	ty_from = open(argp[1], O_RDONLY);
-	check68((ssize_t)ty_from, argp[1], -1, -1);
-	file_perm = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-	ty_to = open(argp[2], O_WRONLY | O_CREAT | O_TRUNC, file_perm);
-	check69((ssize_t)ty_to, argp[2], ty_from, -1);
-	lenc = 1024;
-	while (lenc == 1024)
+	if (argc != 3)
 	{
-		lenc = read(ty_from, buffer, 1024);
-		check68(lenc, argp[1], ty_from, ty_to);
-		lenv = write(ty_to, buffer, lenc);
-		if (lenv != lenc)
-			lenv = -1;
-		check69(lenv, argp[2], ty_from, ty_to);
+		dprintf(STDERR_FILENO, "%s", "Usage: cp file_from file_to\n");
+		exit(97);
 	}
-	close_to = close(ty_to);
-	close_from = close(ty_from);
-	check70(close_to, ty_to);
-	check70(close_from, ty_from);
+	src = open(argv[1], O_RDONLY);
+	check_IO_stat(src, -1, argv[1], 'O');
+	dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	check_IO_stat(dest, -1, argv[2], 'W');
+	while (n_read == 1024)
+	{
+		n_read = read(src, buffer, sizeof(buffer));
+		if (n_read == -1)
+			check_IO_stat(-1, -1, argv[1], 'O');
+		wrote = write(dest, buffer, n_read);
+		if (wrote == -1)
+			check_IO_stat(-1, -1, argv[2], 'W');
+	}
+	close_src = close(src);
+	check_IO_stat(close_src, src, NULL, 'C');
+	close_dest = close(dest);
+	check_IO_stat(close_dest, dest, NULL, 'C');
 	return (0);
+}
+
+/**
+ * check_IO_stat - checks if a file can be opened or closed
+ * @stat: file descriptor of the file to be opened
+ * @filename: name of the file
+ * @mode: closing or opening
+ * @fd: file descriptor
+ *
+ * Return: void
+ */
+void check_IO_stat(int stat, int fd, char *filename, char mode)
+{
+	if (mode == 'C' && stat == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+	else if (mode == 'O' && stat == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		exit(98);
+	}
+	else if (mode == 'W' && stat == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+		exit(99);
+	}
 }
