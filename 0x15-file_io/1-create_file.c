@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _strlen - finds the length of a string
+ * _strlen - finding  the length of a string to
+ * create a function that creates a file
  * @str: pointer to the string
  *
  * Return: length of the string
@@ -16,7 +17,7 @@ size_t _strlen(char *str)
 }
 
 /**
- * create_file - creates a file.
+ * create_file - Creating a function that creates a file.
  * @filename: name of the file to create
  * @text_content: NULL terminated string to write to the file
  *

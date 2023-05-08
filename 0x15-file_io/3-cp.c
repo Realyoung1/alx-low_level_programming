@@ -2,7 +2,8 @@
 
 void check_IO_stat(int stat, int fd, char *filename, char mode);
 /**
- * main - copies the content of one file to another
+ * main - copying the content of one file to another and 
+ * Writting the program that copies the content of a file to another file
  * @arga: argument count
  * @args: arguments passed
  *
@@ -40,7 +41,8 @@ int main(int arga, char *args[])
 }
 
 /**
- * check_IO_stat - checks if a file can be opened or closed
+ * check_IO_stat - checking if a file can be opened or closed and
+ * Writting the program that copies the content of a file to another file
  * @stat: file descriptor of the file to be opened
  * @filename: name of the file
  * @mode: closing or opening

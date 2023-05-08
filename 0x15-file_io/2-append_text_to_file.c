@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _strlen - finds the length of a string
+ * _strlen - findng the length of a stringHow to
+ * write a function that appends text at the end of a file
  * @str: pointer to the string
  *
  * Return: length of the string
@@ -16,7 +17,8 @@ size_t _strlen(char *str)
 }
 
 /**
- * append_text_to_file - appends a text at the end of a file.
+ * append_text_to_file - appending a text at the end of a file on how to
+ * write a a function that appends text at the end of a file.
  * @filename: name of the file
  * @text_content: NULL terminated string to add at the end of the file
  *
