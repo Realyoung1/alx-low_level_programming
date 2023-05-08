@@ -2,7 +2,7 @@
 
 void check_IO_stat(int stat, int fd, char *filename, char mode);
 /**
- * main - copying the content of one file to another and 
+ * main - copying the content of one file to another and
  * Writting the program that copies the content of a file to another file
  * @arga: argument count
  * @args: arguments passed
