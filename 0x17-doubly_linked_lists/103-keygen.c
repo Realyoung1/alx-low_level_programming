@@ -19,7 +19,7 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned int k, b;
+	unsigned int k, g;
 	size_t len, add;
 	char *l = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 	char p[7] = "      ";
