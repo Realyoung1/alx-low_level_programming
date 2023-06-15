@@ -34,20 +34,20 @@ int main(int argc, char *argv[])
 	for (k = 0, add = 0; k < len; k++)
 		add += argv[1][k];
 	p[1] = l[(add ^ 79) & 63];
-	for (k = 0, b = 1; k < len; k++)
-		b *= argv[1][k];
-	p[2] = l[(b ^ 85) & 63];
-	for (b = argv[1][0], k = 0; k < len; k++)
-		if ((char)b <= argv[1][k])
-			b = argv[1][k];
-	srand(b ^ 14);
+	for (k = 0, g = 1; k < len; k++)
+		g *= argv[1][k];
+	p[2] = l[(g ^ 85) & 63];
+	for (g = argv[1][0], k = 0; k < len; k++)
+		if ((char)g <= argv[1][k])
+			g = argv[1][k];
+	srand(g ^ 14);
 	p[3] = l[rand() & 63];
-	for (b = 0, k = 0; k < len; k++)
-		b += argv[1][k] * argv[1][k];
-	p[4] = l[(b ^ 239) & 63];
-	for (b = 0, k = 0; (char)k < argv[1][0]; k++)
-		b = rand();
-	p[5] = l[(b ^ 229) & 63];
+	for (g = 0, k = 0; k < len; k++)
+		g += argv[1][k] * argv[1][k];
+	p[4] = l[(g ^ 239) & 63];
+	for (g = 0, k = 0; (char)k < argv[1][0]; k++)
+		g = rand();
+	p[5] = l[(g ^ 229) & 63];
 	printf("%s\n", p);
 	return (0);
 }
