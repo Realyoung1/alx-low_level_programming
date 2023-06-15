@@ -1,9 +1,21 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
 #include <stddef.h>
+
 /**
- * struct dlistint_s - doubly linked list
+ * struct dlistint_s - func doubly linked list
  * @n: integer
  * @prev: points to the previous node
  * @next: points to the next node
