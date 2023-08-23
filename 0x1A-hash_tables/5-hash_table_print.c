@@ -1,23 +1,35 @@
 #include "hash_tables.h"
 
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+
 /**
- * hash_table_print - prints a hash table
- * @ht: hash table to print
+ * hash_table_print - prints a hash tabless.
+ * @ht: hash table to printss.
  *
- * Return: void
+ * Return: voidss.
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i;
+	unsigned long int w;
 	hash_node_t *tmp;
 	char flag = 0; /* 0 while no data has been printed yet */
 
 	if (ht == NULL || ht->array == NULL)
 		return;
 	printf("{");
-	for (i = 0; i < ht->size; i++)
+	for (w = 0; w < ht->size; w++)
 	{
-		tmp = ht->array[i];
+		tmp = ht->array[w];
 		while (tmp != NULL)
 		{
 			if (flag == 1)

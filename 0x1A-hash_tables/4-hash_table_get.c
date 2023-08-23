@@ -1,11 +1,23 @@
 #include "hash_tables.h"
 
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+
 /**
- * hash_table_get - retrieves a value associated with a key
- * @ht: table to retrieve value from
- * @key: key to find value
+ * hash_table_get - retrieves a value associated with a keys..
+ * @ht: table to retrieve value fromss.
+ * @key: key to find valuess..
  *
- * Return: value associated with key, or NULL if key cannot be found
+ * Return: value associated with key, or NULL if key cannot be founds..
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {

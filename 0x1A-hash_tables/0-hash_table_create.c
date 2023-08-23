@@ -1,15 +1,27 @@
 #include "hash_tables.h"
 
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+
 /**
- * hash_table_create - creates a hash table
- * @size: size of the array
+ * hash_table_create - creates a hash tables..
+ * @size: size of the arrays..
  *
- * Return: pointer to the newly created hash table
+ * Return: pointer to the newly created hash tables..
  */
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *hash_table;
-	unsigned long int i;
+	unsigned long int w;
 
 	hash_table = malloc(sizeof(hash_table_t));
 	if (hash_table == NULL)
@@ -21,7 +33,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		free(hash_table);
 		return (NULL);
 	}
-	for (i = 0; i < size; i++)
-		hash_table->array[i] = NULL;
+	for (w = 0; w < size; w++)
+		hash_table->array[w] = NULL;
 	return (hash_table);
 }

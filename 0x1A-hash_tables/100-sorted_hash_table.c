@@ -1,15 +1,27 @@
 #include "hash_tables.h"
 
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+
 /**
- * shash_table_create - creates a sorted hash table
- * @size: size of the hash table
+ * shash_table_create - creates a sorted hash tables..
+ * @size: size of the hash tables..
  *
- * Return: pointer to the new table, or NULL on failure
+ * Return: pointer to the new table, or NULL on failures..
  */
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *sht;
-	unsigned long int i;
+	unsigned long int w;
 
 	sht = malloc(sizeof(shash_table_t));
 	if (sht == NULL)
@@ -23,19 +35,19 @@ shash_table_t *shash_table_create(unsigned long int size)
 		free(sht);
 		return (NULL);
 	}
-	for (i = 0; i < size; i++)
+	for (w = 0; w < size; w++)
 	{
-		sht->array[i] = NULL;
+		sht->array[w] = NULL;
 	}
 	return (sht);
 }
 
 /**
- * make_shash_node - makes a node for the sorted hash table
- * @key: key for the data
- * @value: data to be stored
+ * make_shash_node - makes a node for the sorted hash tables..
+ * @key: key for the datas..
+ * @value: data to be storeds..
  *
- * Return: pointer to the new node, or NULL on failure
+ * Return: pointer to the new node, or NULL on failures..
  */
 shash_node_t *make_shash_node(const char *key, const char *value)
 {
@@ -62,9 +74,9 @@ shash_node_t *make_shash_node(const char *key, const char *value)
 }
 
 /**
- * add_to_sorted_list - add a node to the sorted (by key's ASCII) linked list
- * @table: the sorted hash table
- * @node: the node to add
+ * add_to_sorted_list - add a node to the sorted (by key's ASCII) linked lists
+ * @table: the sorted hash tables..
+ * @node: the node to adds..
  *
  * Return: void
  */
@@ -99,12 +111,12 @@ void add_to_sorted_list(shash_table_t *table, shash_node_t *node)
 }
 
 /**
- * shash_table_set - sets a key to a value in the hash table
- * @ht: sorted hash table
- * @key: key to the data
- * @value: data to add
+ * shash_table_set - sets a key to a value in the hash tables..
+ * @ht: sorted hash tables..
+ * @key: key to the datas..
+ * @value: data to adds..
  *
- * Return: 1 on success, 0 otherwise
+ * Return: 1 on success, 0 otherwises..
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
@@ -140,9 +152,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 }
 
 /**
- * shash_table_get - retrieve a value from the hash table
- * @ht: hash table
- * @key: key to the data
+ * shash_table_get - retrieve a value from the hash tables..
+ * @ht: hash tables..
+ * @key: key to the datas..
  *
  * Return: the value associated with key, or NULL on failure
  */
@@ -166,8 +178,8 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 }
 
 /**
- * shash_table_print - prints a sorted hash table
- * @ht: hash table to print
+ * shash_table_print - prints a sorted hash tablew..
+ * @ht: hash table to prints..
  *
  * Return: void
  */
@@ -192,8 +204,8 @@ void shash_table_print(const shash_table_t *ht)
 }
 
 /**
- * shash_table_print_rev - prints a sorted hash table in reverse
- * @ht: hash table to print
+ * shash_table_print_rev - prints a sorted hash table in reverses..
+ * @ht: hash table to prints..
  *
  * Return: void
  */
@@ -218,27 +230,27 @@ void shash_table_print_rev(const shash_table_t *ht)
 }
 
 /**
- * shash_table_delete - deletes a sorted hash table
- * @ht: hash table to delete
+ * shash_table_delete - deletes a sorted hash tables..
+ * @ht: hash table to deletes..
  *
  * Return: void
  */
 void shash_table_delete(shash_table_t *ht)
 {
-	unsigned long int i;
+	unsigned long int w;
 	shash_node_t *next;
 
 	if (ht == NULL || ht->array == NULL || ht->size == 0)
 		return;
-	for (i = 0; i < ht->size; i++)
+	for (w = 0; w < ht->size; w++)
 	{
-		while (ht->array[i] != NULL)
+		while (ht->array[w] != NULL)
 		{
-			next = ht->array[i]->next;
-			free(ht->array[i]->key);
-			free(ht->array[i]->value);
-			free(ht->array[i]);
-			ht->array[i] = next;
+			next = ht->array[w]->next;
+			free(ht->array[w]->key);
+			free(ht->array[w]->value);
+			free(ht->array[w]);
+			ht->array[w] = next;
 		}
 	}
 	free(ht->array);

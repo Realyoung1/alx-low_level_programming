@@ -1,11 +1,23 @@
 #include "hash_tables.h"
 
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+
 /**
- * make_hash_node - creates a new hash node
- * @key: key for the node
- * @value: for the node
+ * make_hash_node - creates a new hash nodess.
+ * @key: key for the nodess.
+ * @value: for the nodess.
  *
- * Return: the new node, or NULL on failure
+ * Return: the new node, or NULL on failures..
  */
 hash_node_t *make_hash_node(const char *key, const char *value)
 {
@@ -33,12 +45,12 @@ hash_node_t *make_hash_node(const char *key, const char *value)
 
 
 /**
- * hash_table_set - sets a key to a value in the hash table
- * @ht: hash table to add elemt to
- * @key: key for the data
- * @value: data to store
+ * hash_table_set - sets a key to a value in the hash tabless..
+ * @ht: hash table to add elemt tos..
+ * @key: key for the datas..
+ * @value: data to stores..
  *
- * Return: 1 if successful, 0 otherwise
+ * Return: 1 if successful, 0 otherwisess.
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
