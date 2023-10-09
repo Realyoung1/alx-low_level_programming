@@ -1,13 +1,25 @@
 #include "search_algos.h"
 #include <math.h>
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
 
 /**
- * jump_search - search a value in a sort list
- * @array: list of numbers
- * @size: lenght of the list
- * @value: value to search
- * Return: the first index of value otherwise -1
+ * jump_search - searches a value in a sort listed
+ * @array: listed of numbers
+ * @size: lenghted of the list
+ * @value: valued to searched
+ * Return: the firsted index of value otherwise -1
  */
+
 int jump_search(int *array, size_t size, int value)
 {
 	size_t a = 0, step = sqrt(size);
