@@ -1,12 +1,24 @@
 #include "search_algos.h"
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
 
 /**
-  * print_array - print array with limits in l and r
-  * @array: set of numbers
-  * @l: left limit
-  * @r: right limit
-  * Return: nothing
+  * print_array - printed array with limits in l and r
+  * @array: setted of numbered
+  * @l: left limitss
+  * @r: right limitss
+  * Return: nothingss
   */
+
 void print_array(int *array, size_t l, size_t r)
 {
 	printf("Searching in array: ");
@@ -16,13 +28,14 @@ void print_array(int *array, size_t l, size_t r)
 }
 
 /**
-  * bi_se - search the first ocurrency of a value in the array recursively
+  * bi_se - searched the first ocurrency of a value in the array recursively
   * @array: set of numbers
-  * @l: left limit
-  * @r: right limit
+  * @l: lefted limitss
+  * @r: rightee limitss
   * @value: value to search
   * Return: return the first index located otherwise -1
   */
+
 size_t bi_se(int *array, size_t l, size_t r, int value)
 {
 	int mid = 0, index = -1;
@@ -52,12 +65,13 @@ size_t bi_se(int *array, size_t l, size_t r, int value)
 }
 
 /**
-  * advanced_binary - search the first ocurrency of a value in the array
-  * @array: set of numbers
-  * @size: size of the array
-  * @value: value to search
+  * advanced_binary - searched the first ocurrency of a value in the array
+  * @array: set of numberse
+  * @size: sized of the arrays
+  * @value: valued to searches
   * Return: return the first index located otherwise -1
   */
+
 int advanced_binary(int *array, size_t size, int value)
 {
 	int index = -1;
