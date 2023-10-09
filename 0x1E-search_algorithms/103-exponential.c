@@ -1,12 +1,24 @@
 #include "search_algos.h"
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
 
 /**
-  * print_array - print array with limits in l and r
-  * @array: set of numbers
-  * @l: left limit
-  * @r: right limit
-  * Return: nothing
+  * print_array - printed arrays with limited in l and r
+  * @array: setted of numbered
+  * @l: lefted limited
+  * @r: righted limited
+  * Return: nothings
   */
+
 void print_array(int *array, size_t l, size_t r)
 {
 	printf("Searching in array: ");
@@ -16,13 +28,14 @@ void print_array(int *array, size_t l, size_t r)
 }
 
 /**
-  * binary_search_p - search the first ocurrency of a value in the array
+  * binary_search_p - searched the first ocurrency of a value in the array
   * @array: set of numbers
-  * @l: left limit
-  * @r: right limit
-  * @value: value to search
+  * @l: left limited
+  * @r: right limited
+  * @value: value to searched
   * Return: return the first index located otherwise -1
   */
+
 int binary_search_p(int *array, size_t l, size_t r, int value)
 {
 	size_t mid = 0;
@@ -42,11 +55,12 @@ int binary_search_p(int *array, size_t l, size_t r, int value)
 }
 
 /**
-  * min_value - get the min value of two numbers
+  * min_value - geted the min value of two numbered
   * @l: number l
   * @r: number r
   * Return: return the minimun value
   */
+
 size_t min_value(size_t l, size_t r)
 {
 	return ((l < r) ? l : r);
@@ -54,11 +68,12 @@ size_t min_value(size_t l, size_t r)
 
 /**
   * exponential_search - search the first ocurrency of a value in the array
-  * @array: set of numbers
-  * @size: size of the array
-  * @value: value to search
+  * @array: set of numbered
+  * @size: size of the arrayss
+  * @value: value to searchss
   * Return: return the first index located otherwise -1
   */
+
 int exponential_search(int *array, size_t size, int value)
 {
 	size_t pow = 1;
