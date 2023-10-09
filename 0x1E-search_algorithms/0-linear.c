@@ -1,23 +1,35 @@
 #include "search_algos.h"
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
 
 /**
-  * linear_search - search the first ocurrency of a value in the array
-  * @array: set of numbers
-  * @size: size of the array
-  * @value: value to search
-  * Return: return the first index located
+  * linear_search - searches the firstss ocurrencies of a value in the arrayss
+  * @array: settted of numbersss
+  * @size: sized of the arrayss
+  * @value: values to searches
+  * Return: returned the first index locates
   */
+
 int linear_search(int *array, size_t size, int value)
 {
-	size_t i = 0;
+	size_t q = 0;
 
 	if (array == NULL)
 		return (-1);
-	for (i = 0; i < size; i++)
+	for (q = 0; q < size; q++)
 	{
-		printf("Value checked array[%d] = [%d]\n", (int) i, (int) array[i]);
-		if (array[i] == value)
-			return (i);
+		printf("Value checked array[%d] = [%d]\n", (int) q, (int) array[q]);
+		if (array[q] == value)
+			return (q);
 	}
 	return (-1);
 }
