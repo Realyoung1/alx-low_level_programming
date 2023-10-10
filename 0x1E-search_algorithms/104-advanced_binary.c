@@ -40,43 +40,6 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 }
 
 /**
-  * bi_se - searched the first ocurrency of a value in the array.
-  * @array: set of numbers
-  * @l: lefted limitss
-  * @r: rightee limitss
-  * @value: value to search
-  * Return: return the first index located otherwise -1
-  */
-
-size_t bi_se(int *array, size_t l, size_t r, int value)
-{
-	int mid = 0, index = -1;
-
-	if (l > r)
-		return (-1);
-
-	print_array(array, l, r);
-	mid = (l + r) / 2;
-	if (array[mid] < value)
-	{
-		l = mid + 1;
-		index = bi_se(array, l, r, value);
-	}
-	else if (array[mid] > value)
-	{
-		r = mid - 1;
-		index = bi_se(array, l, r, value);
-	}
-	else
-		if (mid - 1 >= 0 && array[mid - 1] == array[mid])
-			index = bi_se(array, l, mid, value);
-		else
-			index = mid;
-
-	return (index);
-}
-
-/**
   * advanced_binary - searched the first ocurrency of a values.
   * @array: set of numberse
   * @size: sized of the arrays
