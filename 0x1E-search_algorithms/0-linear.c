@@ -1,24 +1,34 @@
+#include <stdlib.h>
 #include "search_algos.h"
 
+void free_list(listint_t *list);
+
 /**
-  * linear_search - searches the firstss ocurrencies of a value in the arrayss
-  * @array: settted of numbersss
-  * @size: sized of the arrayss
-  * @value: values to searches
-  * Return: returned the first index locates
-  */
-
-int linear_search(int *array, size_t size, int value)
+ * create_list - Creates a single linked list
+ *
+ * @array: Pointer to the array to use to fill the list
+ * @size: Size of the array
+ *
+ * Return: A pointer to the head of the created list (NULL on failure)
+ */
+listint_t *create_list(int *array, size_t size)
 {
-	size_t q = 0;
+	listint_t *list;
+	listint_t *node;
 
-	if (array == NULL)
-		return (-1);
-	for (q = 0; q < size; q++)
+	list = NULL;
+	while (array && size--)
 	{
-		printf("Value checked array[%d] = [%d]\n", (int) q, (int) array[q]);
-		if (array[q] == value)
-			return (q);
+		node = malloc(sizeof(*node));
+		if (!node)
+		{
+			free_list(list);
+			return (NULL);
+		}
+		node->n = array[size];
+		node->index = size;
+		node->next = list;
+		list = node;
 	}
-	return (-1);
+	return (list);
 }
