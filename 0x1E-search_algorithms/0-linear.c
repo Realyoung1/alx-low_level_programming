@@ -1,15 +1,4 @@
 #include "search_algos.h"
-#include <stdbool.h>
-#include <sys/stat.h>
-#include <limits.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <string.h>
-#include <stdio.h>
-#include <sys/wait.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <stdlib.h>
 
 /**
   * linear_search - searches the firstss ocurrencies of a value in the arrayss
