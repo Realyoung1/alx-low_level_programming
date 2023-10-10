@@ -16,6 +16,7 @@
 #include <math.h>
 
 /* STRUCTURES */
+
 /**
  * struct listint_s - singlyed link listsss
  *
@@ -50,6 +51,7 @@ typedef struct skiplist_s
 } skiplist_t;
 
 /* PROTOTYPES */
+
 int linear_search(int *array, size_t size, int value);
 int binary_search(int *array, size_t size, int value);
 int jump_search(int *array, size_t size, int value);
