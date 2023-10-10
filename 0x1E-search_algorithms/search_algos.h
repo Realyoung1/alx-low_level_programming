@@ -3,6 +3,7 @@
 
 /* LIBRARIES */
 
+
 #include <stdbool.h>
 #include <sys/stat.h>
 #include <limits.h>
@@ -28,12 +29,14 @@
  *
  * Description: singlyed link listsss nodes structures
  */
+
 typedef struct listint_s
 {
 	int n;
 	size_t index;
 	struct listint_s *next;
 } listint_t;
+
 /**
  * struct skiplist_s - Singlyed link listss with an expressed laned
  *
@@ -44,6 +47,7 @@ typedef struct listint_s
  *
  * Description: singlyed linkss list node structure with an express lane
  */
+
 typedef struct skiplist_s
 {
 	int n;
