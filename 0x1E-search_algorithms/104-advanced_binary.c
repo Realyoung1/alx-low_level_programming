@@ -28,7 +28,7 @@ void print_array(int *array, size_t l, size_t r)
 }
 
 /**
-  * bi_se - searched the first ocurrency of a value in the array recursively
+  * bi_se - searched the first ocurrency of a value in the array.
   * @array: set of numbers
   * @l: lefted limitss
   * @r: rightee limitss
@@ -65,7 +65,7 @@ size_t bi_se(int *array, size_t l, size_t r, int value)
 }
 
 /**
-  * advanced_binary - searched the first ocurrency of a value in the array
+  * advanced_binary - searched the first ocurrency of a values.
   * @array: set of numberse
   * @size: sized of the arrays
   * @value: valued to searches
