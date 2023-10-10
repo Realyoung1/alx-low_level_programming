@@ -17,13 +17,13 @@
 
 /* STRUCTURES */
 /**
- * struct listint_s - singly linked list
+ * struct listint_s - singlyed link listsss
  *
- * @n: Integer
- * @index: Index of the node in the list
- * @next: Pointer to the next node
+ * @n: Integered
+ * @index: Indexes of the nodes in the listed
+ * @next: Pointerss to the next nodess
  *
- * Description: singly linked list node structure
+ * Description: singlyed link listsss nodes structures
  */
 typedef struct listint_s
 {
@@ -32,14 +32,14 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 /**
- * struct skiplist_s - Singly linked list with an express lane
+ * struct skiplist_s - Singlyed link listss with an expressed laned
  *
- * @n: Integer
- * @index: Index of the node in the list
- * @next: Pointer to the next node
- * @express: Pointer to the next node in the express lane
+ * @n: Integerss
+ * @index: Indexes of the node in the listsss
+ * @next: Poineterd to the next nodesss
+ * @express: Pointered to the nexts nodes in the express lane
  *
- * Description: singly linked list node structure with an express lane
+ * Description: singlyed linkss list node structure with an express lane
  */
 typedef struct skiplist_s
 {
