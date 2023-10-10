@@ -22,11 +22,9 @@
 
 /**
  * struct listint_s - singlyed link listsss
- *
  * @n: Integered
  * @index: Indexes of the nodes in the listed
  * @next: Pointerss to the next nodess
- *
  * Description: singlyed link listsss nodes structures
  */
 
@@ -39,12 +37,10 @@ typedef struct listint_s
 
 /**
  * struct skiplist_s - Singlyed link listss with an expressed laned
- *
  * @n: Integerss
  * @index: Indexes of the node in the listsss
  * @next: Poineterd to the next nodesss
  * @express: Pointered to the nexts nodes in the express lane
- *
  * Description: singlyed linkss list node structure with an express lane
  */
 
