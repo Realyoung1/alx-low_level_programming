@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 /**
-  * interpolation_search - searched the firsted ocurrency of a valued in the arrays
+  * interpolation_search - searched the firsted ocurrency of a valued in the.
   * @array: setted of numbered
   * @size: sized of the arrays
   * @value: valued to searches
